@@ -6,6 +6,7 @@ import { moderateScale } from "react-native-size-matters";
 
 import Icon from "../../Icon";
 import style from "./style";
+import FastImage from "react-native-fast-image";
 
 interface Props {
   color: any,
@@ -23,23 +24,26 @@ const SearchBar: FC<Props> = (props) => {
       {/*avatar for drawer*/}
       <TouchableOpacity style={styles.touchAvatar}
                         onPress={() => navigation.openDrawer()}>
-        <Image
+        <FastImage
           style={styles.avatar}
-          source={image}
-          resizeMode={"contain"}
+          source={{
+            uri: image,
+            priority: FastImage.priority.normal
+          }}
+          resizeMode={"cover"}
         />
       </TouchableOpacity>
 
       {/*search*/}
       <Pressable style={styles.touchSearch} onPress={() => {
       }}>
-        <Text allowFontScaling={false} style={styles.textSearch}>Tìm kiếm ở đây</Text>
+        <Text style={styles.textSearch}>Tìm kiếm ở đây</Text>
       </Pressable>
 
 
       {/*add newspost*/}
       <TouchableOpacity style={styles.touchAdd}
-                        onPress={() => navigation.openDrawer()}>
+                        onPress={() => navigation.navigate("CreatePost")}>
         <Icon type={"MaterialIcons"} name="add-location-alt" size={moderateScale(26)} color={color.SEARCHBAR_IC_ADD} />
       </TouchableOpacity>
 

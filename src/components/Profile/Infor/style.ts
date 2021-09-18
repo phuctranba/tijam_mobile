@@ -10,11 +10,12 @@ const styleScaled = (Color: any) => {
       justifyContent: "flex-end"
     },
     routerButton:{
+      width:"46@ms",
+      height: "46@ms",
       backgroundColor: Color.INFOR_BG_ROUTERBUTTON,
       justifyContent: "center",
       alignItems: "center",
-      padding: "12@ms",
-      borderRadius: "30@ms",
+      borderRadius: "25@ms",
       position: "absolute",
       top: SIZES.HEIGHT_PADDINGTOP + verticalScale(15),
       ...SHADOW_3

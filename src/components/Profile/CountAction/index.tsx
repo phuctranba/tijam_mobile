@@ -16,30 +16,33 @@ const CountAction: FC<Props> = (props) => {
 
   return (
     <View style={styles.container}>
-
-      {/*follow*/}
       <View style={styles.containerCount}>
-        <Text style={styles.textCount}>{convertBigNumber(followCount)}</Text>
-        <Text style={styles.textTitle}>Theo dõi</Text>
+
+        {/*follow*/}
+        <View style={styles.viewCount}>
+          <Text style={styles.textCount}>{convertBigNumber(followCount)}</Text>
+          <Text style={styles.textTitle}>Theo dõi</Text>
+        </View>
+
+        <View style={styles.viewStroke} />
+
+        {/*notice*/}
+        <View style={styles.viewCount}>
+          <Text style={styles.textCount}>{convertBigNumber(notiveCount)}</Text>
+          <Text style={styles.textTitle}>Để ý</Text>
+        </View>
+
+        <View style={styles.viewStroke} />
+
+        {/*share*/}
+        <View style={styles.viewCount}>
+          <Text style={styles.textCount}>{convertBigNumber(shareCount)}</Text>
+          <Text style={styles.textTitle}>Chia sẻ</Text>
+        </View>
+
       </View>
-
-      <View style={styles.viewStroke} />
-
-      {/*notice*/}
-      <View style={styles.containerCount}>
-        <Text style={styles.textCount}>{convertBigNumber(notiveCount)}</Text>
-        <Text style={styles.textTitle}>Để ý</Text>
-      </View>
-
-      <View style={styles.viewStroke} />
-
-      {/*share*/}
-      <View style={styles.containerCount}>
-        <Text style={styles.textCount}>{convertBigNumber(shareCount)}</Text>
-        <Text style={styles.textTitle}>Chia sẻ</Text>
-      </View>
-
     </View>
+
   );
 };
 export default memo(CountAction);

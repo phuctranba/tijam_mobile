@@ -8,6 +8,7 @@ import { COLOR_TYPE, ICON_TYPE, TYPE } from "../../../values/enum";
 import Icon from "../../Icon";
 import { moderateScale } from "react-native-size-matters";
 import NewsPost from "../../../models/NewsPost";
+import { IMAGE } from "../../../values/fakeDataEnum";
 
 interface PropsItem {
   item: NewsPost,
@@ -110,7 +111,7 @@ const MarkerPost: FC<PropsItem> = (props) => {
           resizeMode={"cover"}
         />
 
-        <Text allowFontScaling={false} numberOfLines={2}
+        <Text numberOfLines={2}
               style={[styles.labelMarker, { color: renderColor(type) }]}>{label.replace(" ","\n")}</Text>
       </View>
     </TouchableOpacity>

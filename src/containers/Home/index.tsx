@@ -1,4 +1,4 @@
-import React, { FC, memo } from "react";
+import React, { FC, memo, useCallback, useState } from "react";
 import { FlatList } from "react-native";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import SearchBar from "../../components/Home/SearchBar";
@@ -16,22 +16,26 @@ import Animated, { useAnimatedScrollHandler, useSharedValue } from "react-native
 
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 
-const HomeScreen: FC<any> = (props) => {
+const Home: FC<any> = (props) => {
   const { navigation } = props;
   const styles = style(LIGHT.HOME);
+  const [mapReady, setMapReady] = useState(false);
   const translationX = useSharedValue(0);
   const scrollHandler = useAnimatedScrollHandler((event) => {
     translationX.value = event.contentOffset.x;
   });
 
+  const setStateMapReady = useCallback(() => setTimeout(() => setMapReady(true), 1000), []);
+
   return (
     <SafeAreaProvider style={styles.container}>
 
-      <SearchBar navigation={navigation} image={require("../../assets/images/avatar.png")} color={LIGHT.HOME} />
+      <SearchBar navigation={navigation} image={'https://static.tintuc.com.vn/images/ver3/2019/10/22/c19c3dea99aa70f429bb.jpg'} color={LIGHT.HOME} />
       <ListType color={LIGHT.HOME} />
       <ListTag color={LIGHT.HOME} />
 
       <MapView
+        onMapReady={setStateMapReady}
         provider={PROVIDER_GOOGLE}
         style={styles.map}
         region={{
@@ -43,6 +47,7 @@ const HomeScreen: FC<any> = (props) => {
         customMapStyle={LIGHT.MAPSTYLE}>
         {DATA_POST_HOME.map((marker, index) => (
           <Marker
+            tracksViewChanges={!mapReady}
             key={index}
             coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}>
             <MarkerPost color={LIGHT.HOME} item={marker} />
@@ -50,10 +55,10 @@ const HomeScreen: FC<any> = (props) => {
         ))}
       </MapView>
 
-      <ListNewsPost/>
+      <ListNewsPost color={LIGHT.HOME}/>
 
     </SafeAreaProvider>
   );
 };
 
-export default memo(HomeScreen);
+export default memo(Home);

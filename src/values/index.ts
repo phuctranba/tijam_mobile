@@ -9,7 +9,10 @@ export {
 } from "./shadows"
 
 export {
-  DATA_TYPE_POST_HOME
+  DATA_TYPE_POST_HOME,
+  MENU,
+  SLIDE_INTRO,
+  COUNTRY_CODE
 } from './const'
 
 export {

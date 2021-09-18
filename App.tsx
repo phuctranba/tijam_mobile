@@ -8,7 +8,7 @@ const app: FC<any> = () => {
   return (
     <DrawerAnimationProvider>
       <SafeAreaProvider>
-        <StatusBar translucent backgroundColor="transparent" barStyle={"dark-content"}/>
+        <StatusBar translucent backgroundColor="transparent" barStyle={"dark-content"} />
         <App />
       </SafeAreaProvider>
     </DrawerAnimationProvider>

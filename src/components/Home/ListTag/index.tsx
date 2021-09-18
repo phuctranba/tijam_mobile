@@ -5,10 +5,6 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import style from "./style";
 import { DATA_TAG_POST_HOME } from "../../../values";
 
-interface Props {
-  color: any,
-}
-
 interface PropsItem {
   tag: string,
   selected: boolean
@@ -20,14 +16,14 @@ const Item: FC<PropsItem> = (props, styles) => {
 
   return (
     <TouchableOpacity activeOpacity={0.8} style={styles.touchItem}>
-      <Text allowFontScaling={false} style={selected ? styles.textItemSelected : styles.textItem} ellipsizeMode={"tail"}
+      <Text style={selected ? styles.textItemSelected : styles.textItem} ellipsizeMode={"tail"}
             numberOfLines={1}>#{tag}</Text>
     </TouchableOpacity>
   );
 };
 
 
-const ListTag: FC<Props> = (props) => {
+const ListTag: FC<any> = (props) => {
   const { color } = props;
   const styles = style(color);
 

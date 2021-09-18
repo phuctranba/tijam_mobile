@@ -1,5 +1,5 @@
 import { ScaledSheet, scale } from "react-native-size-matters";
-import { SHADOW_3 } from "../../../values/shadows";
+import { SHADOW_2, SHADOW_3 } from "../../../values/shadows";
 import { SIZES } from "../../../values";
 
 const styleScaled = (Color: any) => {
@@ -7,6 +7,11 @@ const styleScaled = (Color: any) => {
     container:{
       top: SIZES.WIDTH_WINDOW - scale(37),
       position: "absolute",
+      alignSelf: "center",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    containerCount:{
       backgroundColor: Color.COUNTACTION_BG_CONTAINER,
       alignSelf: "center",
       borderRadius: "15@ms",
@@ -16,14 +21,14 @@ const styleScaled = (Color: any) => {
       justifyContent: "space-around",
       alignItems: "center",
       paddingHorizontal: "15@ms",
-      ...SHADOW_3
+      ...SHADOW_2
     },
-    containerCount:{
+    viewCount:{
       alignItems: 'center',
     },
     textCount:{
       fontWeight: "bold",
-      fontSize: "19@ms0.3",
+      fontSize: "18@ms0.3",
       marginBottom: "5@ms"
     },
     textTitle:{

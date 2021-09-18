@@ -51,7 +51,7 @@ const Infor: FC<Props> = (props) => {
           height={"100"}
           width={"100"}
           preserveAspectRatio="xY slice"
-          href={require("../../../assets/images/img.png")}
+          href={'https://static.tintuc.com.vn/images/ver3/2019/10/22/c19c3dea99aa70f429bb.jpg'}
           clipPath="url(#clip)"
         />
 
